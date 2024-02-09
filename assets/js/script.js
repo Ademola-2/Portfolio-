@@ -179,11 +179,20 @@ function sendEmail() {
 }).then(
   message => {
     alert(message)
-    Swal.fire({
-      title: "Success",
-      text: "Message Sent Successfully",
-      icon: "success"
-    });
+    if (message === "OK") {
+      Swal.fire({
+        title: "Success",
+        text: "Message Sent Successfully",
+        icon: "success"
+      });
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Something went wrong!",
+        footer: '<a href="#">Why do I have this issue?</a>'
+      });
+    }
   }
 );
 }
